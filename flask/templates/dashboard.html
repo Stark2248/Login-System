@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>Dashboard</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.16.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script> 
+</head>
+<body style="background-color:#63738a">
+<div class="signup-form">
+    <form action="/dropsession">
+		<h2>Profile</h2>
+		{% for item in data %}
+        <img src="{{ url_for('static', filename='img/x.jpg') }}" style="width: 250px;height: 250px; border-radius: 50% 50% 50% 50%; padding-bottom: 10px;">
+        <p>{{ item[6] }}</p>
+        <table class="table" style="text-align: center;">
+            <tr><th>Name</th><td>{{ item[1] }}</td></tr>
+            <tr><th>Date Of Birth</th><td>{{ item[2] }}</td></tr>
+            <tr><th>Mobile Number</th><td>{{ item[3] }}</td></tr>
+            <tr><th>Email</th><td>{{ item[4] }}</td></tr>
+            <tr><th>Passport Number</th><td>{{ item[5] }}</td></tr>
+        </table>
+		{% endfor %}
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Log out</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
